@@ -1,19 +1,17 @@
 import React from "react";
-
-const TodoList = ({ todos, handleComplete }) => {
+const TodoList = ({ steps, completed, onComplete }) => {
   return (
     <ul>
-      {todos.map((todo) => (
-        <li key={todo.id}>
-          <span
-            style={{
-              textDecoration: todo.completed ? "line-through" : "none",
-            }}
-          >
-            {todo.text}
-          </span>
-          {!todo.completed && (
-            <button onClick={() => handleComplete(todo.id)}>Complete</button>
+      {steps.map((step, index) => (
+        <li key={index} style={{ marginBottom: "10px" }}>
+          {step}
+          {!completed[index] && (
+            <button
+              onClick={() => onComplete(index)}
+              style={{ marginLeft: "10px" }}
+            >
+              Complete
+            </button>
           )}
         </li>
       ))}
