@@ -14,7 +14,7 @@ function TodoList({ todos, onComplete }) {
             {todo.text}
           </span>
 
-          {/* Only render button if not completed */}
+          {/* Show Complete button only if not completed */}
           {!todo.completed && (
             <button onClick={() => onComplete(todo.id)}>Complete</button>
           )}
