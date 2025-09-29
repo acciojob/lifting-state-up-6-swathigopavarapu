@@ -7,12 +7,12 @@ function TodoList({ todos, onComplete }) {
       {todos.map((todo) => (
         <li key={todo.id} style={{ marginBottom: "10px" }}>
           {todo.completed ? (
-            // Completed todo
-            <span style={{ marginRight: "10px", textDecoration: "line-through" }}>
+            // ✅ Completed todo: only text with line-through
+            <span style={{ textDecoration: "line-through" }}>
               {todo.text}
             </span>
           ) : (
-            // Active todo with button
+            // ✅ Incomplete todo: text + complete button
             <>
               <span style={{ marginRight: "10px" }}>{todo.text}</span>
               <button onClick={() => onComplete(todo.id)}>Complete</button>
