@@ -1,16 +1,13 @@
 import React from "react";
 
-function TodoItem({ todo, index, onComplete }) {
+function TodoItem({ todo, onComplete }) {
   return (
     <li>
-      <span style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
-        {todo.text}
-      </span>
-      {!todo.completed && (
-        <button onClick={onComplete}>{index + 1}</button>   
-      )}
+      {todo.text}
+      <button onClick={() => onComplete(todo.id)}>Complete</button>
     </li>
   );
 }
+
 
 export default TodoItem;
