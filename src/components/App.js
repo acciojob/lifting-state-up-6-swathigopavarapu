@@ -10,8 +10,9 @@ function App() {
 
   const handleComplete = (id) => {
     const updatedTodos = todos.map((todo) =>
-      todo.id === id ? { ...todo, completed: true } : todo
+      todo.id === id ?{ ...todo, completed: true } : todo
     );
+    console.log("updatedTodos",updatedTodos)
     setTodos(updatedTodos);
   };
 

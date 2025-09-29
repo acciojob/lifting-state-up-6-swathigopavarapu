@@ -1,27 +1,17 @@
-// TodoList.js
 import React from "react";
 
-function TodoList({ todos, onComplete }) {
+function TodoItem({ todo, onComplete }) {
   return (
-    <ul style={{ listStyle: "none", padding: 0 }}>
-      {todos.map((todo) => (
-        <li key={todo.id} style={{ marginBottom: "10px" }}>
-          {todo.completed ? (
-            // ✅ Completed todo: only text with line-through
-            <span style={{ textDecoration: "line-through" }}>
-              {todo.text}
-            </span>
-          ) : (
-            // ✅ Incomplete todo: text + complete button
-            <>
-              <span style={{ marginRight: "10px" }}>{todo.text}</span>
-              <button onClick={() => onComplete(todo.id)}>Complete</button>
-            </>
-          )}
-        </li>
-      ))}
-    </ul>
+    <li>
+      <span style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
+        {todo.text}
+      </span>
+      {!todo.completed && (
+        <button onClick={onComplete}>Complete</button>
+      )}
+    </li>
   );
 }
+
 
 export default TodoList;
