@@ -8,6 +8,7 @@ function TodoList({ todos, onComplete }) {
         <TodoItem
           key={index}
           todo={todo}
+          index={index}
           onComplete={() => onComplete(index)}
         />
       ))}
