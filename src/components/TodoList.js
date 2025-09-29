@@ -1,17 +1,14 @@
 import React from "react";
+import TodoItem from "./TodoItem";
 
-function TodoItem({ todo, onComplete }) {
+function TodoList({ todos, onComplete }) {
   return (
-    <li>
-      <span style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
-        {todo.text}
-      </span>
-      {!todo.completed && (
-        <button onClick={onComplete}>Complete</button>
-      )}
-    </li>
+    <ul>
+      {todos.map((todo, index) => (
+        <TodoItem key={index} todo={todo} onComplete={() => onComplete(index)} />
+      ))}
+    </ul>
   );
 }
-
 
 export default TodoList;
