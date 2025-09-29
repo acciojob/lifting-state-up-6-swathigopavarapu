@@ -3,22 +3,19 @@ import TodoList from "./TodoList";
 
 function App() {
   const [todos, setTodos] = useState([
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Build a React app", completed: false },
-    { id: 3, text: "Deploy the React app", completed: false },
+    { text: "Learn React", completed: false },
+    { text: "Write Tests", completed: false }
   ]);
 
-  const handleComplete = (id) => {
-    const updatedTodos = todos.map((todo) =>
-      todo.id === id ?{ ...todo, completed: true } : todo
-    );
-    console.log("updatedTodos",updatedTodos)
-    setTodos(updatedTodos);
+  const handleComplete = (index) => {
+    const updated = [...todos];
+    updated[index].completed = true;   // ✅ mark todo as completed
+    setTodos(updated);
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h1>parent component</h1>
+    <div>
+      <h1>Todo App</h1>
       <TodoList todos={todos} onComplete={handleComplete} />
     </div>
   );
